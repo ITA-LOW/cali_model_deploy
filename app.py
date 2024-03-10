@@ -23,5 +23,14 @@ def predict_api():
     print(output[0])
     return jsonify(output[0])
 
+@app.route('/predict', methods=['POST'])
+def predict():
+    data=[float(x) for x in request.form.values()] #for para pegar(request) valores de um form html. 
+    final_input=scalar.transform(np.array(data).reshape(1,-1)) #passa o scaler nos dados e transforma em np.array(eh como o modelo aceita dados)
+    print(final_input)
+    output=regmodel.predict(final_input)[0] #vai retornar soh uma linha (pq soh estou enviando uma linha) e preciso q apareça na tela
+    return render_template("home.html", prediction_text="O valor estimado foi {}".format(output))
+                                        #prediction_text é um placeholder
+
 if __name__=="__main__": #isso faz o app rodar
     app.run(debug=True)
