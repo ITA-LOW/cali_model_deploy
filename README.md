@@ -14,3 +14,7 @@
 2. Criar um arquivo txt requirements e listar todas as bibliotecas necessárias para fazer o programa rodar instalar no env
 
         pip install -r requirements.txt
+
+3. Criar um app para interagir com o modelo
+
+        app.py
