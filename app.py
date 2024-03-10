@@ -29,7 +29,7 @@ def predict():
     final_input=scalar.transform(np.array(data).reshape(1,-1)) #passa o scaler nos dados e transforma em np.array(eh como o modelo aceita dados)
     print(final_input)
     output=regmodel.predict(final_input)[0] #vai retornar soh uma linha (pq soh estou enviando uma linha) e preciso q apareça na tela
-    return render_template("home.html", prediction_text="O valor estimado foi {}".format(output))
+    return render_template("home.html", prediction_text="O valor estimado foi $ {:.2f}".format(output))
                                         #prediction_text é um placeholder
 
 if __name__=="__main__": #isso faz o app rodar
