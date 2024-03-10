@@ -1,3 +1,82 @@
-<h1>
-    Hello world, apenas um teste de api
-</h1>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Formulário de Dados</title>
+<style>
+    body {
+        font-family: Arial, sans-serif;
+        background-color: #f4f4f4;
+        margin: 0;
+        padding: 0;
+    }
+    .container {
+        max-width: 600px;
+        margin: 20px auto;
+        background-color: #fff;
+        padding: 20px;
+        border-radius: 5px;
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    }
+    h2 {
+        text-align: center;
+    }
+    label {
+        font-weight: bold;
+    }
+    input[type="text"] {
+        width: 100%;
+        padding: 10px;
+        margin-bottom: 15px;
+        border: 1px solid #ccc;
+        border-radius: 5px;
+        box-sizing: border-box;
+    }
+    input[type="submit"] {
+        background-color: #4caf50;
+        color: #fff;
+        padding: 10px 20px;
+        border: none;
+        border-radius: 5px;
+        cursor: pointer;
+    }
+    input[type="submit"]:hover {
+        background-color: #45a049;
+    }
+</style>
+</head>
+<body>
+<div class="container">
+    <h2>Formulário de Dados</h2>
+    <form action="{{url_for('predict')}}" method="post">
+        <label for="longitude">Longitude:</label>
+        <input type="text" id="longitude" name="longitude" required>
+
+        <label for="latitude">Latitude:</label>
+        <input type="text" id="latitude" name="latitude" required>
+
+        <label for="housing_median_age">Idade Média da Habitação:</label>
+        <input type="text" id="housing_median_age" name="housing_median_age" required>
+
+        <label for="total_rooms">Total de Quartos:</label>
+        <input type="text" id="total_rooms" name="total_rooms" required>
+
+        <label for="total_bedrooms">Total de Quartos:</label>
+        <input type="text" id="total_bedrooms" name="total_bedrooms" required>
+
+        <label for="population">População:</label>
+        <input type="text" id="population" name="population" required>
+
+        <label for="households">Famílias:</label>
+        <input type="text" id="households" name="households" required>
+
+        <label for="median_income">Renda Média:</label>
+        <input type="text" id="median_income" name="median_income" required>
+
+        <input type="submit" value="Enviar">
+    </form>
+</div>
+{{prediction_text}} <!-- mesmo placeholder do return da rota /predict em app.py -->
+</body>
+</html>
